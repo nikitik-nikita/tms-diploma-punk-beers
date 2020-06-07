@@ -1,1 +1,1 @@
-TMS-Diploma Project (Beer-shop)
+TMS-Diploma Project (Punk Beer)

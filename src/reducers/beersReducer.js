@@ -17,7 +17,7 @@ export default {
       const reg = new RegExp(payload.searchString, 'i');
       const newState = state.origin.filter((beer) => reg.test(beer.name));
 
-      return { ...state, search: newState };
+      return { ...state, current: newState };
     },
   }, beersState),
 };

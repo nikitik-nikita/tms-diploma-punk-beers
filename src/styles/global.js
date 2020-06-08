@@ -5,6 +5,7 @@ const globalStyles = (theme) => ({
     fontWeight: theme.typography.fontWeightMedium,
     fontSize: theme.typography.fontSizeGlobal,
     boxSizing: 'border-box',
+    outline: 'none',
   },
   body: {
     overflow: 'auto',
@@ -23,6 +24,12 @@ const globalStyles = (theme) => ({
     fontWeight: theme.typography.fontWeightRegular,
     paddingLeft: '8px',
     boxShadow: '0px 0px 3px 0px #000000 inset',
+    '&:hover': {
+      boxShadow: '0px 0px 5px 0px #000000 inset',
+    },
+    '&:focus': {
+      boxShadow: '0px 0px 5px 0px #000000 inset',
+    },
   },
   '.container': {
     maxWidth: '901px',
@@ -30,6 +37,8 @@ const globalStyles = (theme) => ({
     width: '100%',
   },
   '.button__search': {
+    position: 'relative',
+    right: '30px',
     fontFamily: theme.typography.buttonSearch.fontFamily,
     fontWeight: theme.typography.buttonSearch.fontWeightRegular,
     fontSize: theme.typography.buttonSearch.fontSizeInput,
@@ -43,6 +52,21 @@ const globalStyles = (theme) => ({
     cursor: 'pointer',
     '&:hover': {
       backgroundColor: theme.palette.background.elementsHover,
+    },
+  },
+  '.button__clear_search': {
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    border: 'none',
+    position: 'relative',
+    cursor: 'pointer',
+    color: theme.palette.action.inActive,
+    background: 'none',
+    right: '32px',
+    height: '35px',
+    '&:hover': {
+      color: theme.palette.text.main,
     },
   },
   '.search__error': {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { array, func } from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -7,16 +7,29 @@ import { searchBeers } from 'actions';
 
 
 const Search = ({ searchBeers, beers }) => {
+  const [value, setValue] = useState('');
+
   const handleInput = (event) => {
-    searchBeers({ beers, searchString: event.target.value });
-    console.log(beers);
+    setValue(event.target.value);
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    searchBeers({ beers, searchString: value });
+  };
+
+  const handleSubmitClear = (event) => {
+    event.preventDefault();
+    setValue('');
+    searchBeers({ beers, searchString: '' });
+  };
 
   return (
     <>
-      <form>
-        <input type="text" placeholder="Search for beer..." onChange={handleInput} />
+      <form onSubmit={handleSubmit}>
+        <input type="text" placeholder="Search for beer..." onChange={handleInput} value={value} />
+        <button className="button__clear_search" type="button" onClick={handleSubmitClear}>&#8592;</button>
         <button className="button__search" type="submit">Search</button>
       </form>
     </>

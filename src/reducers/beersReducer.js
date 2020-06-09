@@ -4,7 +4,6 @@ import { handleActions } from 'redux-actions';
 import {
   addBeers,
   searchBeers,
-
 } from 'actions';
 
 // Constants

@@ -20,7 +20,7 @@ const FavouriteBeers = ({ favourite, beers }) => {
 
   const { beerIds } = favourite;
   const favouritesBeers = beers.filter((beer) => beerIds.includes(beer.id));
-  console.log(favouritesBeers);
+  // console.log(favouritesBeers);
 
   return (
     <div className={classes.Root}>

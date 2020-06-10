@@ -28,7 +28,7 @@ export function* getDataSaga() {
         call(serverGet, beersUrl),
       ]);
 
-      console.log(beers);
+      // console.log(beers);
       yield put(addBeers(beers));
       yield put(endLoader());
     }

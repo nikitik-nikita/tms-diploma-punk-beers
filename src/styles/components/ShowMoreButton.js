@@ -14,7 +14,9 @@ const ShowMoreButtonStyles = (theme) => ({
     padding: '.7em 1.5em',
     outline: 'none',
     cursor: 'pointer',
-    borderRadius: '50%',
+    borderRadius: '5px',
+    border: '0 solid black',
+    boxShadow: '0px 0px 3px 0px #000000',
 
     '&:hover': {
       backgroundColor: theme.palette.action.inActive,

@@ -16,10 +16,10 @@ const ShowMoreButton = ({ addBeers }) => {
 
   const handleSearch = (event) => {
     event.preventDefault();
-    const newValueData = valueData.number + 6;
+    const newValueData = valueData.number + 12;
     setValue({ number: newValueData });
   };
-  console.log(valueData);
+  // console.log(valueData);
 
   const MORE_BEERS = `https://api.punkapi.com/v2/beers?page=1&per_page=${valueData.number}`;
   useEffect(() => {
@@ -28,7 +28,7 @@ const ShowMoreButton = ({ addBeers }) => {
 
       .then((beers) => {
         addBeers(beers);
-        console.log(beers);
+        // console.log(beers);
       })
       .catch((err) => {
         console.log(err);

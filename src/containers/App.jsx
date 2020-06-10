@@ -15,7 +15,7 @@ import { getData } from 'actions';
 // Components
 import Loader from 'components/Loader';
 import MainBody from 'components/MainBody';
-import Header from './Header';
+import Header from '../components/Header';
 
 const App = ({ load, ...props }) => {
   useRootStyles();

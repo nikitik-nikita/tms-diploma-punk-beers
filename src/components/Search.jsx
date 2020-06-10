@@ -34,17 +34,19 @@ const Search = ({ searchBeers, beers }) => {
   };
 
   useEffect(() => {
-    fetch(BEER_API_NAME)
-      .then((response) => response.json())
+    if (!beers.length) {
+      fetch(BEER_API_NAME)
+        .then((response) => response.json())
 
-      .then((beers) => {
-        addBeers(beers);
-        console.log(beers);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [query]);
+        .then((beers) => {
+          addBeers(beers);
+          // console.log(beers);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, [beers, query]);
 
   return (
     <>

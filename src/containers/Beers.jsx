@@ -1,5 +1,6 @@
 import React from 'react';
 import { compose } from 'redux';
+// import { Link } from 'react-router-dom';
 
 import { array } from 'prop-types';
 
@@ -36,7 +37,9 @@ const Beers = ({ beers = [] }) => {
                 beer={beer}
               />
               <div className={classes.beer__text}>
+                {/* <Link to={`/beer/${beer.id}`}> */}
                 <p className={classes.beer__text__title}>{beer.name}</p>
+                {/* </Link> */}
                 <p className={classes.beer__text__description}>{beer.description}</p>
               </div>
               <FavouritesButton beer={beer} />

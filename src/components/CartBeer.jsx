@@ -14,9 +14,9 @@ import useStyles from 'styles/containers/Beers';
 import BeersImage from './BeersImage';
 import FavouritesButton from './FavouriteButton';
 
-const CartBeer = ({ beers, ...props }) => {
+const CartBeer = ({ beers = [], ...props }) => {
   const classes = useStyles();
-  const [beer = {}, setBeer] = useState({ beer: {} });
+  const [beer = {}, setBeer] = useState({});
 
   const params = useParams();
 

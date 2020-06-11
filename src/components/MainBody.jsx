@@ -5,7 +5,7 @@ import { Route, Switch } from 'react-router-dom';
 import Beers from 'containers/Beers';
 import MainBodyHeader from './MainBodyHeader';
 import FavouriteBeers from './FavouriteBeers';
-// import CartBeer from './CartBeer';
+import CartBeer from './CartBeer';
 
 const MainBody = () => (
   <div className="container">
@@ -17,9 +17,9 @@ const MainBody = () => (
       <Route path="/favourites">
         <FavouriteBeers />
       </Route>
-      {/* <Route path="/beer/:id"> */}
-      {/*  <CartBeer /> */}
-      {/* </Route> */}
+      <Route path="/beer/:id">
+        <CartBeer />
+      </Route>
     </Switch>
   </div>
 );

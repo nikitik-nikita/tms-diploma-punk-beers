@@ -26,6 +26,7 @@ const beersStyles = (theme) => ({
   },
   beer__text__title: {
     marginBottom: '18px',
+    color: theme.palette.text.main,
   },
   beer__text__description: {
     font: {

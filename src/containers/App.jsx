@@ -10,7 +10,7 @@ import { connect } from 'react-redux';
 import useRootStyles from 'styles';
 
 // Actions
-import { getData } from 'actions';
+import { getBeers } from 'actions';
 
 // Components
 import Loader from 'components/Loader';
@@ -20,7 +20,7 @@ import Header from '../components/Header';
 const App = ({ load, ...props }) => {
   useRootStyles();
   useEffect(() => {
-    props.getData();
+    props.getBeers();
   }, []);
 
   return (
@@ -37,14 +37,14 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  getData,
+  getBeers,
 };
 
 App.displayName = 'App';
 
 App.propTypes = {
   load: bool.isRequired,
-  getData: func.isRequired,
+  getBeers: func.isRequired,
 };
 
 export default compose(

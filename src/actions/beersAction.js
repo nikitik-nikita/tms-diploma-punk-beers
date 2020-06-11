@@ -2,10 +2,12 @@ import { createActions } from 'redux-actions';
 
 export const {
   addBeers,
-  getData,
+  getBeers,
   searchBeers,
+  showMoreBeers,
 } = createActions(
   'ADD_BEERS',
-  'GET_DATA',
+  'GET_BEERS',
   'SEARCH_BEERS',
+  'SHOW_MORE_BEERS',
 );

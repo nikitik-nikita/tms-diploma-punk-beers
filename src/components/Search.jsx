@@ -14,6 +14,7 @@ const Search = ({ searchBeers, beers }) => {
     setValue(event.target.value);
   };
 
+  // Local search
   // const handleSubmit = (event) => {
   //   event.preventDefault();
   //
@@ -46,7 +47,7 @@ const Search = ({ searchBeers, beers }) => {
           console.log(err);
         });
     }
-  }, [beers, query]);
+  }, [query]);
 
   return (
     <>

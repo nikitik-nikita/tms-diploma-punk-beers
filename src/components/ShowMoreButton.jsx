@@ -1,43 +1,33 @@
 import React, { useEffect, useState } from 'react';
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 
-import { func } from 'prop-types';
 
 // Styles (hooks)
 import useStyles from 'styles/components/ShowMoreButton';
 
 // Actions
-import { addBeers } from 'actions';
+import { showMoreBeers } from 'actions';
 
 
-const ShowMoreButton = ({ addBeers }) => {
+const ShowMoreButton = () => {
   const classes = useStyles();
-  const [valueData, setValue] = useState({ number: 18 });
+  const dispatch = useDispatch();
+  const [page, setPage] = useState(1);
 
-  const handleSearch = (event) => {
+  const handleShow = (event) => {
     event.preventDefault();
-    const newValueData = valueData.number + 12;
-    setValue({ number: newValueData });
+    setPage((prevState) => prevState + 1);
   };
-  // console.log(valueData);
 
-  const MORE_BEERS = `https://api.punkapi.com/v2/beers?page=1&per_page=${valueData.number}`;
   useEffect(() => {
-    fetch(MORE_BEERS)
-      .then((response) => response.json())
-
-      .then((beers) => {
-        addBeers(beers);
-        // console.log(beers);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [valueData]);
+    if (page > 1) {
+      dispatch(showMoreBeers(page));
+    }
+  }, [page]);
 
   return (
     <div className={classes.Root}>
-      <button className={classes.showMoreButton} type="button" onClick={handleSearch}>Show More</button>
+      <button className={classes.showMoreButton} type="button" onClick={handleShow}>Show More</button>
     </div>
   );
 };
@@ -46,18 +36,8 @@ const mapStateToProps = (state) => ({
   beers: state.beers.current,
 });
 
-const mapDispatchToProps = {
-  addBeers,
-};
-
 ShowMoreButton.displayName = 'ShowMoreButton';
-
-ShowMoreButton.propTypes = {
-  addBeers: func.isRequired,
-};
-
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
 )(ShowMoreButton);

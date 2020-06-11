@@ -7,7 +7,8 @@ import {
   startLoader,
   addBeers,
   endLoader,
-  getData,
+  getBeers,
+  showMoreBeers,
 } from 'actions';
 
 // Constants
@@ -16,7 +17,7 @@ import { beersUrl } from 'constants/urls';
 // helpers
 import { serverGet } from 'helpers/requests';
 
-export function* getDataSaga() {
+export function* getBeersSaga() {
   try {
     const currentBeers = yield select((state) => state.beers.current);
 
@@ -24,9 +25,7 @@ export function* getDataSaga() {
       yield put(startLoader());
       yield delay(4000);
 
-      const [beers] = yield all([
-        call(serverGet, beersUrl),
-      ]);
+      const beers = call(serverGet, beersUrl());
 
       // console.log(beers);
       yield put(addBeers(beers));
@@ -38,8 +37,24 @@ export function* getDataSaga() {
   }
 }
 
+export function* getMoreBeersSaga({ payload }) {
+  try {
+    yield put(startLoader());
+    const currentBeers = yield select((state) => state.beers.current);
+
+    const beers = yield call(serverGet, beersUrl(payload));
+
+    yield put(addBeers([...currentBeers, ...beers]));
+    yield put(endLoader());
+  } catch (err) {
+    console.error(err.message);
+    yield put(endLoader());
+  }
+}
+
 export default function* beers() {
   yield all([
-    takeLatest(getData.toString(), getDataSaga),
+    takeLatest(getBeers.toString(), getBeersSaga),
+    takeLatest(showMoreBeers.toString(), getMoreBeersSaga),
   ]);
 }

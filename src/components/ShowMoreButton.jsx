@@ -12,6 +12,7 @@ import { showMoreBeers } from 'actions';
 const ShowMoreButton = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
+
   const [page, setPage] = useState(1);
 
   const handleShow = (event) => {

@@ -5,14 +5,15 @@ import {
 // Actions
 import {
   startLoader,
-  addBeers,
+  setBeers,
   endLoader,
   getBeers,
   showMoreBeers,
+  searchBeers,
 } from 'actions';
 
 // Constants
-import { beersUrl } from 'constants/urls';
+import { beersUrl, beersSearchUrl } from 'constants/urls';
 
 // helpers
 import { serverGet } from 'helpers/requests';
@@ -25,10 +26,10 @@ export function* getBeersSaga() {
       yield put(startLoader());
       yield delay(4000);
 
-      const beers = call(serverGet, beersUrl());
+      const beers = yield call(serverGet, beersUrl());
 
       // console.log(beers);
-      yield put(addBeers(beers));
+      yield put(setBeers(beers));
       yield put(endLoader());
     }
   } catch (err) {
@@ -44,7 +45,26 @@ export function* getMoreBeersSaga({ payload }) {
 
     const beers = yield call(serverGet, beersUrl(payload));
 
-    yield put(addBeers([...currentBeers, ...beers]));
+    yield put(setBeers([...currentBeers, ...beers]));
+    yield put(endLoader());
+  } catch (err) {
+    console.error(err.message);
+    yield put(endLoader());
+  }
+}
+
+export function* searchBeersSaga({ payload }) {
+  try {
+    yield put(startLoader());
+
+    if (!payload.length) {
+      const beers = yield call(serverGet, beersUrl());
+      yield put(setBeers(beers));
+    } else if (payload.length) {
+      const foundBeers = yield call(serverGet, beersSearchUrl(payload));
+      yield put(setBeers(foundBeers));
+    }
+
     yield put(endLoader());
   } catch (err) {
     console.error(err.message);
@@ -56,5 +76,6 @@ export default function* beers() {
   yield all([
     takeLatest(getBeers.toString(), getBeersSaga),
     takeLatest(showMoreBeers.toString(), getMoreBeersSaga),
+    takeLatest(searchBeers.toString(), searchBeersSaga),
   ]);
 }

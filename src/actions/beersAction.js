@@ -1,13 +1,13 @@
 import { createActions } from 'redux-actions';
 
 export const {
-  addBeers,
   getBeers,
+  setBeers,
   searchBeers,
   showMoreBeers,
 } = createActions(
-  'ADD_BEERS',
   'GET_BEERS',
+  'SET_BEERS',
   'SEARCH_BEERS',
   'SHOW_MORE_BEERS',
 );

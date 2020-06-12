@@ -25,7 +25,8 @@ const CartBeer = ({ beers = [], ...props }) => {
 
     if (beers.length && id) {
       const stateBeer = beers.find((item) => item.id === id);
-
+      console.log(stateBeer);
+      console.log(beers.length);
       setBeer(stateBeer);
     } else if (props.beer) {
       setBeer(props.beer);
@@ -33,7 +34,7 @@ const CartBeer = ({ beers = [], ...props }) => {
   }, []);
 
   return (
-    <div className={classes.Beers__table__information} key={beer.id}>
+    <div className={classes.Beers__table__information}>
       <div className={classes.beer__cell}>
         <BeersImage
           src={beer.image_url}

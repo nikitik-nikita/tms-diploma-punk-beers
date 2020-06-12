@@ -48,7 +48,6 @@ const mapStateToProps = (state) => ({
 
 
 FavouriteBeers.propTypes = {
-  // beerIds: array.isRequired,
   beers: array.isRequired,
   favourite: object.isRequired,
 };

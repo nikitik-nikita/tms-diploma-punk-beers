@@ -6,6 +6,7 @@ const beersStyles = (theme) => ({
     gridTemplateColumns: '1fr 1fr 1fr',
     gridColumnGap: '20px',
     gridRowGap: '20px',
+    padding: '20px 0',
   },
   Beers__table__information: {
     boxShadow: '0px 0px 3px 0px #000000',

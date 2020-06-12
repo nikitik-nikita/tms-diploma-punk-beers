@@ -5,7 +5,7 @@ const mainBodyHeaderStyles = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: '15px 0',
+    paddingTop: '15px',
   },
 };
 

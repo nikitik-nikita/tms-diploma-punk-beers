@@ -11,7 +11,6 @@ import { connect } from 'react-redux';
 import BeersImage from 'components/BeersImage';
 import FavouritesButton from 'components/FavouriteButton';
 import SearchError from 'components/SearchError';
-import ShowMoreButton from 'components/ShowMoreButton';
 
 // Styles (hooks)
 import useStyles from 'styles/containers/Beers';
@@ -47,7 +46,6 @@ const Beers = ({ beers = [] }) => {
           </div>
         ))}
       </div>
-      <ShowMoreButton />
     </>
   );
 };

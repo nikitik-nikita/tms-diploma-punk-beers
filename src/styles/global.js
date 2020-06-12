@@ -71,10 +71,11 @@ const globalStyles = (theme) => ({
   },
   '.search__error': {
     display: 'flex',
-    color: theme.palette.text.main,
-    border: '3px solid #3a3232',
+    color: theme.palette.text.primary,
+    background: theme.palette.background.header,
     justifyContent: 'center',
     fontSize: '-webkit-xxx-large',
+    marginTop: '20px',
   },
 });
 

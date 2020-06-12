@@ -16,24 +16,24 @@ import FavouritesButton from './FavouriteButton';
 
 const CartBeer = ({ beers = [], ...props }) => {
   const classes = useStyles();
-  const [beer = {}, setBeer] = useState({});
+  const [beer, setBeer] = useState({});
 
   const params = useParams();
 
   useEffect(() => {
-    const { id } = params;
+    const { id } = params || {};
 
     if (beers.length && id) {
-      const stateBeer = beers.find((item) => item.id === id);
-
+      const stateBeer = beers.find((item) => (item.id === +id));
+      console.log(stateBeer);
       setBeer(stateBeer);
     } else if (props.beer) {
       setBeer(props.beer);
     }
-  }, []);
+  }, [params]);
 
   return (
-    <div className={classes.Beers__table__information} key={beer.id}>
+    <div className={classes.Beers__table__information}>
       <div className={classes.beer__cell}>
         <BeersImage
           src={beer.image_url}

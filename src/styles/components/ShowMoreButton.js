@@ -5,7 +5,7 @@ const ShowMoreButtonStyles = (theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: '15px 0',
+    paddingBottom: '15px',
   },
   showMoreButton: {
     color: theme.palette.text.primary,

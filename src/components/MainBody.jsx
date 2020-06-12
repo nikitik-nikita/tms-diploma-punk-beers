@@ -6,12 +6,18 @@ import Beers from 'containers/Beers';
 import MainBodyHeader from './MainBodyHeader';
 import FavouriteBeers from './FavouriteBeers';
 import CartBeer from './CartBeer';
+import ShowMoreButton from './ShowMoreButton';
 
 const MainBody = () => (
   <div className="container">
-    <MainBodyHeader />
     <Switch>
       <Route path="/" exact>
+        <MainBodyHeader />
+        <Beers />
+        <ShowMoreButton />
+      </Route>
+      <Route path="/search">
+        <MainBodyHeader />
         <Beers />
       </Route>
       <Route path="/favourites">

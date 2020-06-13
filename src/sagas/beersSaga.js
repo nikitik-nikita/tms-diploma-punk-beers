@@ -20,7 +20,7 @@ import { serverGet } from 'helpers/requests';
 
 export function* getBeersSaga() {
   try {
-    const currentBeers = yield select((state) => state.beers.current);
+    const currentBeers = yield select((state) => state.beers);
 
     if (!currentBeers.length) {
       yield put(startLoader());
@@ -41,7 +41,7 @@ export function* getBeersSaga() {
 export function* getMoreBeersSaga({ payload }) {
   try {
     yield put(startLoader());
-    const currentBeers = yield select((state) => state.beers.current);
+    const currentBeers = yield select((state) => state.beers);
 
     const beers = yield call(serverGet, beersUrl(payload));
 

@@ -1,9 +1,6 @@
 export const loadState = false;
 
-export const beersState = {
-  origin: [],
-  current: [],
-};
+export const beersState = [];
 
 export const favourite = {
   beerIds: [],

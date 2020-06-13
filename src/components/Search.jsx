@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
+import { object } from 'prop-types';
 
+// Hooks
 import { useDispatch } from 'react-redux';
 import { withRouter } from 'react-router';
-import { object } from 'prop-types';
 
 // Actions
 import { searchBeers } from 'actions';
-
 
 const Search = ({ history }) => {
   const dispatch = useDispatch();
@@ -20,11 +20,14 @@ const Search = ({ history }) => {
   const handleSubmitClear = (event) => {
     event.preventDefault();
 
+    history.push('/');
     setValue('');
+    return dispatch(searchBeers(() => value));
   };
 
   const handleSearch = (event) => {
     event.preventDefault();
+
     if (value === '') {
       history.push('/');
       dispatch(searchBeers(value));
@@ -44,7 +47,6 @@ const Search = ({ history }) => {
     </>
   );
 };
-
 
 Search.displayName = 'Search';
 

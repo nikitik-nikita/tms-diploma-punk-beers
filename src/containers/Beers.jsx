@@ -4,17 +4,15 @@ import { Link } from 'react-router-dom';
 
 import { array } from 'prop-types';
 
-// HOCs
+// Hooks
 import { connect } from 'react-redux';
 
 // Components
-import BeersImage from 'components/BeersImage';
-import FavouritesButton from 'components/FavouriteButton';
+import FavouritesButton from 'containers/FavouriteButton';
 import SearchError from 'components/SearchError';
 
 // Styles (hooks)
 import useStyles from 'styles/containers/Beers';
-
 
 const Beers = ({ beers = [] }) => {
   const classes = useStyles();
@@ -30,11 +28,9 @@ const Beers = ({ beers = [] }) => {
         {beers.map((beer) => (
           <div className={classes.Beers__table__information} key={beer.id}>
             <div className={classes.beer__cell}>
-              <BeersImage
-                src={beer.image_url}
-                alt={beer.name}
-                beer={beer}
-              />
+              <div className={classes.beer__img__wrap}>
+                <img className={classes.beer__img} alt={beer.name} src={beer.image_url} />
+              </div>
               <div className={classes.beer__text}>
                 <Link to={`/beer/${beer.id}`}>
                   <p className={classes.beer__text__title}>{beer.name}</p>
@@ -52,7 +48,7 @@ const Beers = ({ beers = [] }) => {
 
 
 const mapStateToProps = (state) => ({
-  beers: state.beers.current,
+  beers: state.beers,
 });
 
 Beers.displayName = 'Beers';

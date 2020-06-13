@@ -10,6 +10,6 @@ import { beersState } from 'constants/defaultState';
 
 export default {
   beers: handleActions({
-    [setBeers]: (state, { payload = [] }) => ({ origin: payload, current: payload }),
+    [setBeers]: (state, { payload = [] }) => (payload),
   }, beersState),
 };

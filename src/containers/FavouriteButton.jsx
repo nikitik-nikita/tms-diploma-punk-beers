@@ -2,24 +2,26 @@ import React, { useEffect, useState } from 'react';
 import { compose } from 'redux';
 
 import {
-  func, array, object,
+  array, object,
 } from 'prop-types';
 
-// HOKs
-import { connect } from 'react-redux';
+// Hooks
+import { connect, useDispatch } from 'react-redux';
 import classNames from 'classnames';
 
 // Actions
 import { addToFavourite, removeFromFavourite } from 'actions';
 
 // Styles (hooks)
-import useStyles from 'styles/components/FavouriteButton';
+import useStyles from 'styles/containers/FavouriteButton';
 
 const FavouriteButton = ({
   beer,
   ...props
 }) => {
   const classes = useStyles();
+  const dispatch = useDispatch();
+
   const [active, setActiveData] = useState({ status: false });
 
   useEffect(() => {
@@ -34,7 +36,7 @@ const FavouriteButton = ({
   const handleFavourites = (event) => {
     event.preventDefault();
     setActiveData((prevState) => ({ status: !prevState.status }));
-    active.status ? props.removeFromFavourite(payload) : props.addToFavourite(payload);
+    active.status ? dispatch(removeFromFavourite(payload)) : dispatch(addToFavourite(payload));
   };
 
   return (
@@ -54,24 +56,16 @@ const mapStateToProps = (state) => ({
   favourite: state.favourite,
 });
 
-const mapDispatchToProps = {
-  addToFavourite,
-  removeFromFavourite,
-};
-
 FavouriteButton.displayName = 'FavouritesButton';
 
 FavouriteButton.propTypes = {
   beer: object.isRequired,
   favourite: object.isRequired,
   beerIds: array,
-  addToFavourite: func.isRequired,
-  removeFromFavourite: func.isRequired,
 };
 
 export default compose(
   connect(
     mapStateToProps,
-    mapDispatchToProps,
   ),
 )(FavouriteButton);

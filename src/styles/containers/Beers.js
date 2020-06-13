@@ -19,6 +19,14 @@ const beersStyles = (theme) => ({
     alignItems: 'center',
     padding: '15px',
   },
+  beer__img__wrap: {
+    width: '150px',
+    height: '100px',
+    textAlign: 'center',
+  },
+  beer__img: {
+    maxHeight: '100%',
+  },
   beer__text: {
     marginLeft: '23px',
     display: 'flex',
@@ -40,6 +48,39 @@ const beersStyles = (theme) => ({
     '-webkit-box-orient': 'vertical',
     overflow: 'hidden',
     textOverflow: 'ellipsis',
+  },
+
+  // CardBeer
+  Root__Card: {
+    gridTemplateColumns: '1fr',
+    gridColumnGap: 'unset',
+    gridRowGap: 'unset',
+    padding: '20px 0 5px 0px',
+  },
+  beer__img__wrap__Card: {
+    width: '250px',
+    height: '200px',
+  },
+  beer__text__Card: {
+    marginLeft: 'unset',
+    height: 'unset',
+  },
+  beer__text__title__Card: {
+    fontSize: '18px',
+  },
+  beer__text__description__Card: {
+    font: {
+      weight: theme.typography.fontWeightRegular,
+      size: '14px',
+    },
+    maxWidth: '400px',
+    '-webkit-line-clamp': 'unset',
+    overflow: 'unset',
+    textOverflow: 'unset',
+  },
+
+  favourites__button__Card: {
+    height: '85px',
   },
 });
 

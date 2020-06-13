@@ -4,37 +4,29 @@ import { compose } from 'redux';
 
 import { array, object } from 'prop-types';
 
-
-// HOCs
+// Hooks
 import { connect } from 'react-redux';
 
-// Styles (hooks)
-import useStyles from 'styles/containers/Beers';
-
 // Components
-import CartBeer from 'components/CartBeer';
+import CartBeer from 'containers/CartBeer';
 import NoFavourites from 'components/NoFavourites';
 
 const FavouriteBeers = ({ favourite, beers }) => {
-  const classes = useStyles();
-
   const { beerIds } = favourite;
   const favouritesBeers = beers.filter((beer) => beerIds.includes(beer.id));
   // console.log(favouritesBeers);
 
   return (
-    <div className={classes.Root}>
-      <Route path="/favourites">
-        {favouritesBeers.length
-          ? favouritesBeers.map((beer) => (
-            <CartBeer
-              key={beer.id}
-              beer={beer}
-            />
-          ))
-          : (<NoFavourites />)}
-      </Route>
-    </div>
+    <Route path="/favourites">
+      {favouritesBeers.length
+        ? favouritesBeers.map((beer) => (
+          <CartBeer
+            key={beer.id}
+            beer={beer}
+          />
+        ))
+        : (<NoFavourites />)}
+    </Route>
   );
 };
 
@@ -42,10 +34,9 @@ const FavouriteBeers = ({ favourite, beers }) => {
 FavouriteBeers.displayName = 'FavouriteBeers';
 
 const mapStateToProps = (state) => ({
-  beers: state.beers.current,
+  beers: state.beers,
   favourite: state.favourite,
 });
-
 
 FavouriteBeers.propTypes = {
   beers: array.isRequired,

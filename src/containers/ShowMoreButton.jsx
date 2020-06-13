@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { connect, useDispatch } from 'react-redux';
 
-
 // Styles (hooks)
-import useStyles from 'styles/components/ShowMoreButton';
+import useStyles from 'styles/containers/ShowMoreButton';
 
 // Actions
 import { showMoreBeers } from 'actions';
-
 
 const ShowMoreButton = () => {
   const classes = useStyles();
@@ -34,7 +32,7 @@ const ShowMoreButton = () => {
 };
 
 const mapStateToProps = (state) => ({
-  beers: state.beers.current,
+  beers: state.beers,
 });
 
 ShowMoreButton.displayName = 'ShowMoreButton';

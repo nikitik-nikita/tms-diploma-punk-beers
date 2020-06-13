@@ -8,7 +8,7 @@ import { store, persistor } from 'store';
 
 // Components
 import { Provider } from 'react-redux';
-import Wrapper from './containers/Wrapper';
+import Wrapper from './components/Wrapper';
 
 
 ReactDOM.render((

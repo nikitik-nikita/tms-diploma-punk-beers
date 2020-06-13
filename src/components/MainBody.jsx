@@ -3,10 +3,10 @@ import { Route, Switch } from 'react-router-dom';
 
 // Components
 import Beers from 'containers/Beers';
+import FavouriteBeers from 'containers/FavouriteBeers';
+import CartBeer from 'containers/CartBeer';
+import ShowMoreButton from 'containers/ShowMoreButton';
 import MainBodyHeader from './MainBodyHeader';
-import FavouriteBeers from './FavouriteBeers';
-import CartBeer from './CartBeer';
-import ShowMoreButton from './ShowMoreButton';
 
 const MainBody = () => (
   <div className="container">

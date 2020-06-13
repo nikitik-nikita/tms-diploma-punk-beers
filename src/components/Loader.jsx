@@ -6,7 +6,6 @@ import withDisplay from 'HOCs/withDisplay';
 // Styles
 import 'styles/components/Loader.css';
 
-
 const Loader = () => (
   <>
     <div className="Loader">

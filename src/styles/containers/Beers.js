@@ -3,7 +3,8 @@ import { createUseStyles } from 'react-jss';
 const beersStyles = (theme) => ({
   Root: {
     display: 'grid',
-    gridTemplateColumns: '1fr 1fr 1fr',
+    // gridTemplateColumns: '1fr 1fr 1fr',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(30.3%, 1fr))',
     gridColumnGap: '20px',
     gridRowGap: '20px',
     padding: '20px 0',

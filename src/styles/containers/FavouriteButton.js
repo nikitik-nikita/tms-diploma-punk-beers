@@ -2,11 +2,8 @@ import { createUseStyles } from 'react-jss';
 
 const favouriteButton = (theme) => ({
   wrapFavouriteButton: {
-    position: 'relative',
-    bottom: '60px',
-    right: '8px',
-    width: 0,
-    height: 0,
+    alignSelf: 'start',
+    justifySelf: 'end',
   },
   favouriteButton: {
     fill: theme.palette.background.default,

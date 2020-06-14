@@ -80,7 +80,8 @@ const beersStyles = (theme) => ({
   },
 
   favourites__button__Card: {
-    height: '85px',
+    alignSelf: 'start',
+    justifySelf: 'end',
   },
 });
 

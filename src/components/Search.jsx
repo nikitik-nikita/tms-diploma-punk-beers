@@ -40,7 +40,7 @@ const Search = ({ history }) => {
   return (
     <>
       <form onSubmit={handleSearch}>
-        <input type="text" placeholder="Search for beer..." onChange={handleInput} value={value} />
+        <input type="text" maxLength="35" placeholder="Search for beer..." onChange={handleInput} value={value} />
         <button className="button__clear_search" type="button" onClick={handleSubmitClear}>&#8592;</button>
         <button className="button__search" type="submit">Search</button>
       </form>

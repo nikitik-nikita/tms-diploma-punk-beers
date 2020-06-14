@@ -31,14 +31,20 @@ const globalStyles = (theme) => ({
       boxShadow: '0px 0px 5px 0px #000000 inset',
     },
   },
+  'input[type=text]::-ms-clear': {
+    display: 'none',
+  },
+
   '.container': {
     maxWidth: '901px',
     margin: '0 auto',
     width: '100%',
   },
+
+  // Search component
   '.button__search': {
     position: 'relative',
-    right: '30px',
+    right: '32px',
     fontFamily: theme.typography.buttonSearch.fontFamily,
     fontWeight: theme.typography.buttonSearch.fontWeightRegular,
     fontSize: theme.typography.buttonSearch.fontSizeInput,
@@ -63,12 +69,14 @@ const globalStyles = (theme) => ({
     cursor: 'pointer',
     color: theme.palette.action.inActive,
     background: 'none',
-    right: '32px',
+    right: '30px',
     height: '35px',
     '&:hover': {
       color: theme.palette.text.main,
     },
   },
+
+  // Search error component
   '.search__error': {
     display: 'flex',
     color: theme.palette.text.primary,

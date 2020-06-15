@@ -78,11 +78,7 @@ const globalStyles = (theme) => ({
 
   // Search error component
   '.search__error': {
-    display: 'flex',
-    color: theme.palette.text.primary,
-    background: theme.palette.background.header,
-    justifyContent: 'center',
-    fontSize: '-webkit-xxx-large',
+    width: '100%',
     marginTop: '20px',
   },
 });

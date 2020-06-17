@@ -26,9 +26,11 @@ const globalStyles = (theme) => ({
     boxShadow: '0px 0px 3px 0px #000000 inset',
     '&:hover': {
       boxShadow: '0px 0px 5px 0px #000000 inset',
+      backgroundColor: '#f0ffff',
     },
     '&:focus': {
       boxShadow: '0px 0px 5px 0px #000000 inset',
+      backgroundColor: '#f0ffff',
     },
   },
   'input[type=text]::-ms-clear': {
